@@ -2,6 +2,7 @@ import { H5, Tabs, Text } from "tamagui";
 
 // import Home from "..";
 import { MyStack } from "../../components/MyStack";
+
 export default function Tab1() {
   return (
     <MyStack>

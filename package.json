@@ -1,5 +1,5 @@
 {
-  "name": "twitter-feed-demo",
+  "name": "social-media-feed-demo",
   "version": "1.0.0",
   "main": "expo-router/entry",
   "scripts": {
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
+    "@faker-js/faker": "^8.0.2",
     "@google/semantic-release-replace-plugin": "1.1.0",
     "@manypkg/cli": "^0.20.0",
     "@semantic-release/changelog": "6.0.1",
