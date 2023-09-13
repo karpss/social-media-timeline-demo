@@ -1,13 +1,12 @@
 export interface AppUser {
   id: string;
   name: string;
-  username: string;
   verified: boolean;
   photo: string;
   followers?: AppUser[];
 }
 
-export interface Post {
+export interface Posts {
   id: string;
   author: AppUser;
   content: string;

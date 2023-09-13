@@ -1,39 +1,37 @@
-import { H5, Tabs, Text } from "tamagui";
+import { useContext, useEffect, useState } from "react";
+import { ScrollView, Separator, Spinner } from "tamagui";
 
-// import Home from "..";
+import { MySafeAreaView } from "../../components/MySafeAreaView";
 import { MyStack } from "../../components/MyStack";
+import TimelinePosts from "../../components/TimelinePosts";
+import { TimelineContext } from "../../context/TimelineContext";
 
 export default function Tab1() {
-  return (
-    <MyStack>
-      <Tabs
-        defaultValue="tab1"
-        orientation="horizontal"
-        flexDirection="column"
-        width="100%"
-      >
-        <Tabs.List>
-          <Tabs.Tab value="index">
-            <Text>SubTab 1</Text>
-          </Tabs.Tab>
-          <Tabs.Tab value="tab2">
-            <Text>SubTab 2</Text>
-          </Tabs.Tab>
-          <Tabs.Tab value="tab3">
-            <Text>SubTab 3</Text>
-          </Tabs.Tab>
-        </Tabs.List>
+  const timeline = useContext(TimelineContext);
+  const [loading, setLoading] = useState(true);
 
-        <Tabs.Content value="index">
-          <H5>SubTab 1 Content</H5>
-        </Tabs.Content>
-        <Tabs.Content value="tab2">
-          <H5>SubTab 2 Content</H5>
-        </Tabs.Content>
-        <Tabs.Content value="tab3">
-          <H5>SubTab 3 Content</H5>
-        </Tabs.Content>
-      </Tabs>
-    </MyStack>
+  useEffect(() => {
+    if (timeline.length > 0) {
+      setLoading(false);
+    }
+  }, [timeline]);
+
+  return (
+    <MySafeAreaView>
+      <ScrollView>
+        <MyStack separator={<Separator />}>
+          {loading ? (
+            <Spinner />
+          ) : (
+            timeline.map((timelinePost) => (
+              <TimelinePosts
+                key={timelinePost.id}
+                timelinePost={timelinePost}
+              />
+            ))
+          )}
+        </MyStack>
+      </ScrollView>
+    </MySafeAreaView>
   );
 }

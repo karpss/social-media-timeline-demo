@@ -1,6 +1,6 @@
 export const inherit = "inherit";
 export const transparent = "transparent";
-export const black = "#000";
+export const black = "#050203";
 export const white = "#fff";
 export const slate = {
   50: "#f8fafc",

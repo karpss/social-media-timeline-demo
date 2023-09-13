@@ -10,6 +10,7 @@ import { SplashScreen, Stack } from "expo-router";
 import { TamaguiProvider, Text, Theme } from "tamagui";
 
 import { MySafeAreaView } from "../components/MySafeAreaView";
+import { TimelineProvdier } from "../context/TimelineContext";
 import config from "../tamagui.config";
 
 SplashScreen.preventAutoHideAsync();
@@ -32,22 +33,24 @@ export default function Layout() {
 
   return (
     <TamaguiProvider config={config}>
-      <Suspense fallback={<Text>Loading...</Text>}>
-        <Theme name={colorScheme}>
-          <ThemeProvider
-            value={colorScheme === "dark" ? DefaultTheme : DarkTheme}
-          >
-            <MySafeAreaView>
-              <Stack>
-                <Stack.Screen
-                  name="(tabs)"
-                  options={{ headerShown: false }}
-                />
-              </Stack>
-            </MySafeAreaView>
-          </ThemeProvider>
-        </Theme>
-      </Suspense>
+      <TimelineProvdier>
+        <Suspense fallback={<Text>Loading...</Text>}>
+          <Theme name={colorScheme}>
+            <ThemeProvider
+              value={colorScheme === "light" ? DefaultTheme : DarkTheme}
+            >
+              <MySafeAreaView>
+                <Stack>
+                  <Stack.Screen
+                    name="(tabs)"
+                    options={{ headerShown: false }}
+                  />
+                </Stack>
+              </MySafeAreaView>
+            </ThemeProvider>
+          </Theme>
+        </Suspense>
+      </TimelineProvdier>
     </TamaguiProvider>
   );
 }

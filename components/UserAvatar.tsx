@@ -4,7 +4,7 @@ function UserAvatar() {
   return (
     <Avatar
       circular
-      size="$5"
+      size="$3"
     >
       <Avatar.Image
         accessibilityLabel="Nate Wienert"

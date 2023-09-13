@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import { faker } from "@faker-js/faker";
 
-import { AppUser, Post } from "./types/timeline";
+import { AppUser, Posts } from "../types/timeline";
 
 export function createFollower(): AppUser {
   return {
@@ -26,7 +26,7 @@ export function createUser(): AppUser {
   };
 }
 
-export function createTimeline(): Post {
+export function createTimeline(): Posts {
   const author = createUser();
   return {
     id: faker.string.uuid(),
@@ -46,6 +46,6 @@ export function createTimeline(): Post {
   };
 }
 
-export function generateTimeline(): Post[] {
+export function generateTimeline(): Posts[] {
   return new Array(50).fill(null).map(() => createTimeline());
 }

@@ -1,26 +1,26 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
+import UserAvatar from "../../components/UserAvatar";
 import { white } from "../../utils/colors";
-import UserAvatar from "../../utils/userAvatar";
 
 export default function Layout() {
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: white,
-        tabBarStyle: { backgroundColor: "black" },
+        tabBarStyle: { backgroundColor: "#050203" },
         headerShown: true,
         headerTintColor: white,
         headerStyle: {
-          backgroundColor: "black"
+          backgroundColor: "#050203"
         }
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: "Tab 1",
+          title: "",
           headerTitleAlign: "center",
           tabBarIcon(props) {
             return (
@@ -38,7 +38,7 @@ export default function Layout() {
       <Tabs.Screen
         name="tab2"
         options={{
-          title: "Tab 2",
+          title: "",
           headerTitleAlign: "center",
           tabBarIcon(props) {
             return (
@@ -56,7 +56,7 @@ export default function Layout() {
       <Tabs.Screen
         name="tab3"
         options={{
-          title: "Tab 3",
+          title: "",
           headerTitleAlign: "center",
           tabBarIcon(props) {
             return (
@@ -74,7 +74,7 @@ export default function Layout() {
       <Tabs.Screen
         name="tab4"
         options={{
-          title: "Tab 4",
+          title: "",
           headerTitleAlign: "center",
           tabBarIcon(props) {
             return (
