@@ -6,7 +6,7 @@ import { MyStack } from "../../components/MyStack";
 import TimelinePosts from "../../components/TimelinePosts";
 import { TimelineContext } from "../../context/TimelineContext";
 
-export default function Tab1() {
+export default function HomeTab() {
   const timeline = useContext(TimelineContext);
   const [loading, setLoading] = useState(true);
 
