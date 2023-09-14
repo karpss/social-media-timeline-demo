@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import { faker } from "@faker-js/faker";
 
 import { AppUser, Posts } from "../types/timeline";
@@ -8,8 +7,7 @@ export function createFollower(): AppUser {
     id: faker.string.uuid(),
     photo: faker.image.avatar(),
     name: faker.person.firstName() + " " + faker.person.lastName(),
-    verified: Math.random() >= 0.5,
-    username: faker.internet.userName()
+    verified: Math.random() >= 0.5
   };
 }
 
@@ -19,10 +17,9 @@ export function createUser(): AppUser {
     photo: faker.image.avatar(),
     name: faker.person.firstName() + " " + faker.person.lastName(),
     verified: Math.random() >= 0.5,
-    username: faker.internet.userName(),
     followers: new Array(Math.floor(Math.random() * 15))
       .fill(null)
-      .map((element) => createFollower())
+      .map(() => createFollower())
   };
 }
 
@@ -47,5 +44,5 @@ export function createTimeline(): Posts {
 }
 
 export function generateTimeline(): Posts[] {
-  return new Array(50).fill(null).map(() => createTimeline());
+  return new Array(40).fill(null).map(() => createTimeline());
 }
